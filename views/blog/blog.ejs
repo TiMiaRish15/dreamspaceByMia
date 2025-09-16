@@ -17,7 +17,7 @@
 </section>
 
 <section>
-
+  <div class="container">
     <% blogs.forEach(blog => { %>
   <div class="card mb-3">
     <img src="<%= blog.image %>" class="card-img-top" alt="Blog image">
@@ -28,7 +28,7 @@
     </div>
   </div>
 <% }) %>
-
+</div>
 </section>
 
 <%- include ('../partials/footer.ejs') %>
