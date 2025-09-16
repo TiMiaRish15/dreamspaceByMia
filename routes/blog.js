@@ -42,19 +42,16 @@ router.post('/create-blog', async (req, res) => {
 
 //handle blog route only
 router.get('/', async (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/auth');
-  }
+ 
 
   try {
-    const products = await Product.find({});
+    
     const blogs = await Blog.find({}).sort({ createdAt: -1 }); // newest first
 
     const ctx = {
       title: 'Mia DreamSpace - Blog',
       message: 'Welcome to the blog page',
       notifs: true,
-      products: products,
       blogs: blogs, // pass blogs to the view
       user: req.session.user
     };
