@@ -1,0 +1,34 @@
+<%- include ('../partials/header.ejs') %>
+
+<section>
+    <div class="container">
+    <br>
+
+     <div class="alert alert-primary text-center" role="alert">
+        Welcome to my blog space
+    </div>
+    <br>
+    <h3>Test Blog</h3>
+
+    
+    <p>This is my blog page</p>
+</div>
+
+</section>
+
+<section>
+
+    <% blogs.forEach(blog => { %>
+  <div class="card mb-3">
+    <img src="<%= blog.image %>" class="card-img-top" alt="Blog image">
+    <div class="card-body">
+      <h5 class="card-title"><%= blog.title %></h5>
+      <p class="card-text"><%= blog.content %></p>
+      <p class="card-text"><small class="text-muted">By <%= blog.author || 'Anonymous' %> on <%= blog.createdAt.toDateString() %></small></p>
+    </div>
+  </div>
+<% }) %>
+
+</section>
+
+<%- include ('../partials/footer.ejs') %>

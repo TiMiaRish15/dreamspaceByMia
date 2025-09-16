@@ -1,0 +1,76 @@
+
+ <%- include ('../partials/header.ejs') %>
+
+ <section>
+    <div class="container">
+    <br>
+
+     <div class="alert alert-primary text-center" role="alert">
+        Welcome to the DreamSpace By Mia
+    </div>
+    
+    <div class="text-center my-4">
+        <h3>Mia's world</h3>
+    </div>
+    
+    <div class="text-center my-4">
+        <p>Explore, reflect, and connect through Mia’s lens</p>
+    </div>
+    
+   
+</div>
+
+</section>
+
+        
+
+ <section class="container my-5">
+  <div class="row align-items-center">
+    <!-- Comments Section -->
+    <div class="col-md-4">
+      <h5 class="mb-3 text-center my-4">About Me</h5>
+      <ul class="list-group">
+        <li class="list-group-item">Hi, I’m Mia — a storyteller, dreamer, and creator of this space. I blend scenic escapes with soulful reflections to inspire connection and creativity..</li>
+      </ul>
+    </div>
+
+    <!-- Middle Image -->
+    <div class="col-md-4 text-center mb-3 mb-md-0">
+      <p>Join the Journey, Sign Up, Become a Dreamer</p>  
+      <img src="dashboardpic.jpg" alt="Middle Image" class="img-fluid rounded shadow">
+    </div>
+
+    <!-- Comments Section -->
+    <div class="col-md-4">
+      <h5 class="mb-3 text-center my-4 "> 🌟 Interest 🌟</h5>
+      <ul class="list-group">
+        <li class="list-group-item">🐱 Cat</li>
+        <li class="list-group-item">🎶 Music</li>
+        <li class="list-group-item">💪 Fitness</li>
+        <li class="list-group-item">🎨 Drawing</li>
+        <li class="list-group-item">📚 Learning</li>
+        <li class="list-group-item">💻 Coding</li>
+        <li class="list-group-item">🤗 Kind human</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+
+    <% if (notifs==true){ %>
+        <p><%- message %></p>
+    <% } %>
+    
+    <ul>
+        <% products = ['Tshirt', 'Notebook'];
+        for (product of products) { %>
+
+            <li> product: <%- product %></li>
+            <% } %>
+    </ul>
+
+<a href="/shop">Go to shop page</a>
+
+<%- include ('../partials/footer.ejs') %>

@@ -1,0 +1,23 @@
+.niceColor {
+    color: #62c5ed
+}
+
+.productImage{
+    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+.productEditImage{
+    border-radius: 10px;
+    width: 300px;
+}
+
+.myButton{
+    margin-top: 10px;
+}
+
+.card-spacer{
+    margin-bottom: 20px;
+}

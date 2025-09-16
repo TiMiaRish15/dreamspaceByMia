@@ -1,0 +1,255 @@
+<%- include ('../partials/header.ejs') %>
+
+<section>
+    
+    <div class="container">
+        <br>
+
+        <div class="alert alert-primary text-center" role="alert">
+            Welcome to the DreamSpace By Mia
+        </div>
+        
+
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <h3>Admin Dashboard</h3>
+     
+    </div>
+
+</section>
+
+
+<section>
+
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0 p-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Manage Products</h5>
+        <p class="card-text">To add, update and delete product</p>
+
+<!------ Add a button with a triggrt modal-->
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createProductModal">Create product</button>
+<!-- Add a button-->
+
+<!--_____________________Test something--><!-- Display product on the admin dashboard -->
+
+    <div class="container">
+        <br>
+        <h3>Products</h3>
+        <p>Here you can manage your store's products.</p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+               <% products.forEach(product => { %>
+                    <tr>
+                        <th scope="row"><%= product._id %></th>
+                        <td><%- product.name %></td>
+                        <td><%- product.description %></td>
+                        <td>Rs <%- product.price %></td>
+                        <td><%- product.category %></td>
+                        <td><%- product.stock %></td>
+                        <td><img src="data:image/png;base64, <%- product.image %>" alt="<%= product.name %>" style="width: 50px; height: 50px;"></td>
+                        <td>
+                            <a href="/admin/edit-product/<%= product._id %>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/admin/delete-product/<%= product._id %>" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+
+
+               <% }); %>
+            </tbody>
+        </table>
+
+    </div>
+
+
+<!--________________________Test something--><!-- Display product on the admin dashboard -->
+
+<!-- Inside a button, create a product placefolder-->
+                <!-- Modal -->
+<div class="modal fade" id="createProductModal" tabindex="-1" aria-labelledby="createProductModal" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Create product</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <form name="createProductForm" id="createProductForm" method="POST" action="/admin/create-product">
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Apple" name="name">
+              </div>
+
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="description" placeholder="Green apples" name="description">
+              </div>
+
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Price</label>
+                  <input type="text" class="form-control" id="price" placeholder="450" name="price">
+              </div>
+
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+               
+                <select id="category" name= "category" class="form-select">
+                    <option>Food</option>
+                    <option>Beverages</option>
+                    <option>Electronics</option>
+                    <option>Clothing</option>
+                    <option>Furniture</option>
+                </select>
+
+              </div>
+
+              <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                  <input type="number" class="form-control" id="stock" placeholder="100" name="stock">
+              </div>
+
+
+
+              <!--Image upload-->
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                  <input type="file" class="form-control" id="image" name="image">
+              </div>
+            
+
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-control-input" id="sale" name="sale">
+                <label  class="form-label" for="sale" >On Sale</label>
+              </div>
+
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Save changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div> 
+              
+             </form>            
+        </div>
+
+
+      </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--_________________________________________Manage Blog____________________________________-->
+  <div class="col-sm-6 p-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Manage Blogs</h5>
+        <p class="card-text">To add, update and delete post blog</p>
+        <a href="#" class="btn btn-primary">Create Blog</a>
+
+  <div class="container">
+        <br>
+        <h3>Create new blog</h3>
+        <p>Add new story</p>
+
+    
+
+  <form action="/blog/create-blog" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Blog Title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="10" placeholder="Write your story here..." required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" name="author" placeholder="Author name">
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="url" class="form-control" id="image" name="image" placeholder="https://example.com/image.jpg">
+    </div>
+
+<br>
+    <button type="submit" class="btn btn-success btn-sm">Submit</button>
+    <!--<a href="#" class="btn btn-warning btn-sm">Edit</a>-->
+    
+  </form>
+
+
+
+
+  </div>   
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+<script>
+    // submitButton = document.querySelector('#submit-button');
+    // submitButton.addEventListener('click', function(event) {
+    //     event.preventDefault();
+
+    //     console.log('function called');
+       
+    //     form=document.getElementById('createProductForm');
+    //     //submit the form
+    //     form.submit();
+    // }); 
+    
+
+        function imageUploaded() {
+            let base64String = "";
+            
+            let file = document.querySelector(
+                'input[type=file]')['files'][0];
+
+            let reader = new FileReader();
+            // console.log("next");
+
+            reader.onload = function () {
+                base64String = reader.result.replace("data:", "")
+                    .replace(/^.+,/, "");
+
+                imageBase64Stringsep = base64String;
+
+                // alert(imageBase64Stringsep);
+                console.log(base64String);
+
+                //set the value of the hidden input field to the base64 string
+                document.querySelector('#convertedImage').value = base64String;
+            }
+            reader.readAsDataURL(file);
+        }
+
+</script>
+
+
+
+<%- include ('../partials/footer.ejs') %>
