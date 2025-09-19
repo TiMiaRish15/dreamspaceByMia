@@ -36,8 +36,9 @@
 
     <!-- Middle Image -->
     <div class="col-md-4 text-center mb-3 mb-md-0">
-      <p>Join the Journey, Sign Up, Become a Dreamer</p>  
+      
       <img src="/images/dashboardpic.jpg" alt="Middle Image" class="img-fluid rounded shadow">
+      <span class="d-inline-block align-middle">Join the Journey, <a href="/auth/register" class="text-decoration-none">Sign Up</a>, Become a Dreamer</span>
     </div>
 
     <!-- Comments Section -->
@@ -59,18 +60,8 @@
 
 
 
-    <% if (notifs==true){ %>
-        <p><%- message %></p>
-    <% } %>
-    
-    <ul>
-        <% products = ['Tshirt', 'Notebook'];
-        for (product of products) { %>
 
-            <li> product: <%- product %></li>
-            <% } %>
-    </ul>
 
-<a href="/shop">Go to shop page</a>
+
 
 <%- include ('../partials/footer.ejs') %>

@@ -21,3 +21,9 @@
 .card-spacer{
     margin-bottom: 20px;
 }
+
+.blogImage{
+    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+}
