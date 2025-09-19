@@ -9,17 +9,56 @@
         </div>
 
         <br>
-            <h3>Payment Page</h3>
-            <p>This is my Payment page</p>
+
     </div>
 
 </section>
 
     <br><br>
-    
+
+<section>
+        <div class="container">
+            <h2 class="text-center">Your Cart Items</h2>
+            <% if (cart && Object.keys(cart).length > 0) { %>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                        let id = 0;
+                        for (item in cart) { %>
+                            <tr>
+                                <td><%= ++id %></td>
+                                <td><img src="data:image/png;base64, <%- cart[item].image %>" alt="<%= cart[item].name %>" style="width: 50px; height: 50px;"></td>
+                                <td><%- cart[item].name %></td>
+                                <td>Rs <%- cart[item].price %></td>
+                                <td><%- cart[item].qty %></td>
+                                <td>Rs <%- cart[item].price * cart[item].qty %></td>
+                            </tr>
+
+                        <% } %>
+                    </tbody>
+                </table>
+                
+                </ul>
+            <% } else { %>
+                <p class="text-center">Your cart is empty.</p>
+            <% } %>
+        </div>
+       
+    </section>
+    <br><br> <br>
 <section>
     <div class="container text-center">
-        <h2 class="text-center">Your Cart Items</h2>
+        <h2 class="text-center">Here is your total</h2>
         <p>Pay using credit card</p>
         <a href="/cart/checkout" class="btn btn-primary">Pay Now : Rs <%- total %></a>
     </div>

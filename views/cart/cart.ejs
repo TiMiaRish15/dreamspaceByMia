@@ -28,6 +28,7 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Qty</th>
@@ -40,6 +41,7 @@
                             for (item in cart) { %>
                             <tr>
                                 <td><%= ++id %></td>
+                                <td><img src="data:image/png;base64, <%- cart[item].image %>" alt="<%= cart[item].name %>" style="width: 50px; height: 50px;"></td>
                                 <td><%- cart[item].name %></td>
                                 <td>Rs <%- cart[item].price %></td>
                                 <!-- <td><%- cart[item].qty %></td> -->
@@ -56,7 +58,7 @@
 
                         <% }%>
                         <tr>
-                            <td colspan="4" class="text-end"><strong>Total:</strong></td>
+                            <td colspan="5" class="text-end"><strong>Total:</strong></td>
                             <td>Rs <%-total%></td>
                             <td><a href="/cart/payment" class="btn btn-success btn-sm">Checkout</a></td>
                         </tr>

@@ -90,8 +90,8 @@ router.get('/remove/:id', async  (req, res) => {
 
 //________Payment___________________________________
 
-router.get('/payment', async  (req, res) => {
-    total,products= await getCartProducts(req.session.cart);
+router.get('/payment', async (req, res) => {
+    products, total = await getCartProducts(req.session.cart);
     res.render('cart/payment.ejs', {
         title: 'NewMart - Payment',
         user: req.session.user, //pass user session to the view
@@ -105,7 +105,7 @@ router.get('/checkout', async  (req, res) => {
         res.redirect('/auth'); //if user is not logged in, redirect to auth page
     } else {
 
-        total, products = await getCartProducts(req.session.cart);
+        products, total = await getCartProducts(req.session.cart);
         const purchase = new Purchases({
             user: req.session.user.email,
             items: Object.keys(req.session.cart).map(id => ({

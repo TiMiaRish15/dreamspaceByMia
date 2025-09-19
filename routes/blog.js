@@ -12,7 +12,7 @@ const Blog = require('../models/blogs'); // import Blog model
 
 //Create blog post-submit
 router.post('/create-blog', async (req, res) => {
-    console.log("aaaa");
+   
   if (!req.session.user) {
     return res.redirect('/auth'); // enforce login
   }
