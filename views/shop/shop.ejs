@@ -7,16 +7,18 @@
     <div class="container">
     <br>
 
-     <div class="alert alert-primary text-center" role="alert">
-        Welcome to the DreamSpace By Mia
-    </div>
-    <br>
-    <h3 style="text-align: center;">This is my Shop</h3>
+
+      <section>
+        <div class="container">
+            <h1 class="text-center niceColor">🧸 Welcome to the DreamSpace store By Mia 🧸</h1>
+        </div>  
+      </section>
+
 
     
-    <p style="text-align: center;">Hi, I’m Mia—a storyteller, dreamer, and creator of this space.
-         I blend scenic escapes with soulful reflections
-          to inspire connection and creativity.</p>
+    
+
+
 </div>
 
 </section>
@@ -35,7 +37,7 @@
                                 <h5 class="card-title text-center"><%-product.name %></h5>
                                 <p class="card-text text-center"><%-product.description %></p>
                                 <p class="card-title text-center text-muted">Rs <%-product.price %> </p>
-                                <a class="btn btn-success myButton" href="/cart/add?id=<%- product.id %>&qty=1">Add to cart</a>
+                                <a class="btn btn-outline-dark myButton" href="/cart/add?id=<%- product.id %>&qty=1">Add to cart</a>
                                 <!-- <p class="card-text"><%-product.category %></p> -->
                             </div>
                         </div>

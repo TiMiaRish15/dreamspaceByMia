@@ -2,6 +2,12 @@
     color: #62c5ed
 }
 
+.navbar{
+    background-color: rgb(253 205 239) !important;
+}
+
+
+
 .productImage{
     border-radius: 10px;
     height: 220px;
@@ -16,6 +22,7 @@
 
 .myButton{
     margin-top: 10px;
+    background-color: rgb(253 205 239);
 }
 
 .card-spacer{
