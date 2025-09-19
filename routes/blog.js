@@ -7,7 +7,6 @@ const router = express.Router();
 
 const Blog = require('../models/blogs'); // import Blog model
 
-
 //create routes
 
 //Create blog post-submit
@@ -43,7 +42,6 @@ router.post('/create-blog', async (req, res) => {
 //handle blog route only
 router.get('/', async (req, res) => {
  
-
   try {
     
     const blogs = await Blog.find({}).sort({ createdAt: -1 }); // newest first
@@ -63,6 +61,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+/*router.get('/like/:id', async (req, res) => {
+    id = req.params.id; //get blog to like
+    blog = await Blog.findById(id);
+    blog.likedAmount++;
+    await Blog.findByIdAndUpdate(id, blog);
+
+    res.redirect('/blog'); //redirect to cart page
+});
+*/
 
 //export router object
 module.exports = router;

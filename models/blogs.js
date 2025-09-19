@@ -15,6 +15,7 @@ const BlogSchema = new mongoose.Schema({
 
   author: String,
   image: String, // URL to the blog image
+  //likedAmount: Number, // The amount of times that the blog has been liked
   createdAt: { 
     type: Date, 
     default: Date.now 

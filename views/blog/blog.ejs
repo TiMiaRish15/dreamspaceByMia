@@ -18,17 +18,20 @@
 
 <section>
   <div class="container">
-    <% blogs.forEach(blog => { %>
-  <div class="card mb-3">
-    <img src="<%= blog.image %>" class="card-img-top" alt="Blog image">
-    <div class="card-body">
-      <h5 class="card-title"><%= blog.title %></h5>
-      <p class="card-text"><%= blog.content %></p>
-      <p class="card-text"><small class="text-muted">By <%= blog.author || 'Anonymous' %> on <%= blog.createdAt.toDateString() %></small></p>
+    <div class="row">
+      <% blogs.forEach(blog => { %>
+        <div class="card col-md-3"> 
+          <img src="<%= blog.image %>" class="card-img-top" alt="Blog image">
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <p class="card-text"><%= blog.content %></p>
+            <p class="card-text"><small class="text-muted">By <%= blog.author || 'Anonymous' %> on <%= blog.createdAt.toDateString() %></small></p>
+          </div>
+          <!--<a class="btn btn-success" href="/blog/like/<%- blog.id %>">❤️</a>-->
+        </div>
+      <% }) %>
     </div>
   </div>
-<% }) %>
-</div>
 </section>
 
 <%- include ('../partials/footer.ejs') %>
